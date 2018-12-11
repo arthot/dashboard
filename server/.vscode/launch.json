@@ -7,9 +7,9 @@
             "request": "attach",
             "protocol": "inspector",
             "address": "localhost",
-            "port": 9211,
+            "port": 9264,
             "localRoot": "${workspaceFolder}",
-            "remoteRoot": "/var/www/payment",
+            "remoteRoot": "/var/www/dashboard",
             "skipFiles": [
                 "<node_internals>/**/*.js"
             ]

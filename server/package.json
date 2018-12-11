@@ -1,15 +1,18 @@
 {
   "name": "dashboard-server",
   "version": "0.1.0",
-  "description": "",
+  "description": "Personal dashboard server",
   "main": "src/index.js",
   "scripts": {
-    "test": "mocha"
+    "start": "NODE_ENV=development node src/index.js",
+    "watch": "NODE_ENV=development nodemon --inspect=0.0.0.0:9264 src/index.js",
+    "test": "NODE_ENV=test mocha --bail --exit --recursive --no-timeouts",
+    "test:watch": "NODE_ENV=test mocha --bail --exit --recursive --no-timeouts --watch",
+    "test:all": "NODE_ENV=test mocha --exit --recursive --no-timeouts src/**/*.spec.js",
+    "coverage": "NODE_ENV=test nyc mocha --exit --recursive --no-timeouts src/**/*.spec.js",
+    "lint": "eslint src"
   },
-  "keywords": [
-    "dashboard"
-  ],
-  "author": "art-hot",
+  "author": "arthot",
   "license": "ISC",
   "dependencies": {
     "bluebird": "^3.5.3",
