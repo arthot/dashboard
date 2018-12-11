@@ -1,0 +1,12 @@
+{
+  "node": {
+    "host": null,
+    "port": 8181
+  },
+  "log": {
+    "level": "debug"
+  },
+  "jwt" : {
+    "secret": "secret"
+  }
+}

@@ -1,0 +1,8 @@
+{
+    "ignore": [
+        "src/**/*.spec.js"
+    ],
+    "watch": [
+        "src/**/*.js"
+    ]
+}
