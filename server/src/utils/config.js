@@ -30,6 +30,7 @@ nconf
     .file('default', defaultConfig);
 
 module.exports = {
+    isProduction: env === 'production',
     node: {
         host: nconf.get('node:host'),
         port: nconf.get('node:port'),
@@ -40,4 +41,5 @@ module.exports = {
     jwt: {
         secret: nconf.get('jwt:secret'),
     },
+    users: nconf.get('users'),
 }

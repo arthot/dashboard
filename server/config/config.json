@@ -6,7 +6,14 @@
   "log": {
     "level": "debug"
   },
-  "jwt" : {
+  "jwt": {
     "secret": "secret"
-  }
+  },
+  "users": [
+    {
+      "id": 1,
+      "login": "login",
+      "pass": "pass"
+    }
+  ]
 }
