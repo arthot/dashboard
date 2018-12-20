@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const router = express.Router();
 const config = require('../utils/config');
 
-router.post('/sigin', async (req, res, next) => {
+router.post('/signin', async (req, res, next) => {
     try {
         const { login, pass } = req.body;
         const user = config.users.find(u => u.login === login && u.pass === pass);

@@ -10,7 +10,7 @@ describe('/api/config', () => {
 
     before(async () => {
         agent = chai.request.agent(app);
-        await agent.post('/api/auth/sigin').send({ login: 'login', pass: 'pass' });
+        await agent.post('/api/auth/signin').send({ login: 'login', pass: 'pass' });
     })
 
     it('should get config', () => {

@@ -13,7 +13,7 @@ describe('/api/auth', () => {
     })
 
     it('should not login with wrong user', () => {
-        return agent.post('/api/auth/sigin')
+        return agent.post('/api/auth/signin')
             .send({
                 login: 'login-invalid',
                 pass: 'pass',
@@ -24,7 +24,7 @@ describe('/api/auth', () => {
     })
 
     it('should not login with wrong pass', () => {
-        return agent.post('/api/auth/sigin')
+        return agent.post('/api/auth/signin')
             .send({
                 login: 'login',
                 pass: 'pass-invalid',
@@ -35,7 +35,7 @@ describe('/api/auth', () => {
     })
 
     it('should login', () => {
-        return agent.post('/api/auth/sigin')
+        return agent.post('/api/auth/signin')
             .send({
                 login: 'login',
                 pass: 'pass',
