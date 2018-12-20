@@ -4,17 +4,30 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import NavMenu from './components/NavMenu';
 import Login from './components/Login';
-
+import { UserStore, LoginContext } from './login';
 
 const App = () => (
-    <Router>
-        <div className="app-content app-content__black">
-            <NavMenu />
-            <main className="app-body">
-                <Route exact path="/" component={Login} />
-            </main>
-        </div>
-    </Router>
-);
+    <div className="app-content app-content__black">
+        <NavMenu />
+        <main className="app-body">
+            <LoginContext.Consumer>
+                {({ user }) => !user ?
+                    <Login /> :
+                    (
+                        <Route exact path="/" component={() => 'HI!'} />
+                    )
+                }
+            </LoginContext.Consumer>
+        </main>
+    </div>
+)
 
-export default hot(module)(App);
+const Root = () => (
+    <Router>
+        <UserStore>
+            <App />
+        </UserStore>
+    </Router>
+)
+
+export default hot(module)(Root);

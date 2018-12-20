@@ -1,5 +1,6 @@
 import React, { PureComponent, Component } from 'react';
 import wretch from 'wretch';
+import { LoginContext } from '../login';
 
 export default class LoginComponent extends Component {
     state = {};
@@ -9,7 +10,10 @@ export default class LoginComponent extends Component {
             .post(form)
             .unauthorized(() => this.setState({ error: 'Invalid creds' }))
             .error(code => this.setState({ error: 'Error ' + code }))
-            .res(() => this.setState({ error: '' }));
+            .json(user => {
+                this.setState({ error: '' });
+                this.context.save(user);
+            });
 
     }
 
@@ -22,6 +26,8 @@ export default class LoginComponent extends Component {
         )
     }
 }
+
+LoginComponent.contextType = LoginContext;
 
 class Login extends PureComponent {
     onSubmit(ev) {
