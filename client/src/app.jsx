@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import NavMenu from './components/NavMenu';
 import Login from './components/Login';
+import Clock from './components/Clock';
 import { UserStore, LoginContext } from './login';
 
 const App = () => (
@@ -14,7 +15,7 @@ const App = () => (
                 {({ user }) => !user ?
                     <Login /> :
                     (
-                        <Route exact path="/" component={() => 'HI!'} />
+                        <Route exact path="/clock" component={Clock} />
                     )
                 }
             </LoginContext.Consumer>

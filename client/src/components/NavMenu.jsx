@@ -1,8 +1,9 @@
 import React from "react";
+import {NavLink} from 'react-router-dom';
 
 const App = () => (
     <nav className="nav">
-        Nav menu
+        <NavLink to="/clock">Clock</NavLink>
     </nav>
 );
 
