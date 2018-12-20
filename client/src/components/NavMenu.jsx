@@ -1,9 +1,9 @@
 import React from "react";
 
 const App = () => (
-    <div className="app-content">
+    <nav className="nav">
         Nav menu
-    </div>
+    </nav>
 );
 
 export default App;

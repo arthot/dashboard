@@ -6,9 +6,11 @@ import NavMenu from './components/NavMenu';
 
 const App = () => (
     <Router>
-        <div className="app-content">
+        <div className="app-content app-content__black">
             <NavMenu />
-            <Route exact path="/" component={() => <div>HI!</div>} />
+            <main className="app-body">
+                <Route exact path="/" component={() => <div>HI!</div>} />
+            </main>
         </div>
     </Router>
 );
