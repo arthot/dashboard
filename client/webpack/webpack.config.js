@@ -68,6 +68,7 @@ module.exports = (env, argv) => {
             disableHostCheck: true,
             hot: true,
             stats: 'minimal',
+            historyApiFallback: true,
         },
         plugins: [
             new HtmlWebpackPlugin({
