@@ -5,6 +5,7 @@
     ],
     "plugins": [
         "react-hot-loader/babel",
-        "transform-react-jsx-img-import"
+        "transform-react-jsx-img-import",
+        "@babel/plugin-proposal-class-properties"
     ]
 }
