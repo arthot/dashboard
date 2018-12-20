@@ -1,6 +1,6 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 import NavMenu from './components/NavMenu';
 import Login from './components/Login';
@@ -15,7 +15,10 @@ const App = () => (
                 {({ user }) => !user ?
                     <Login /> :
                     (
-                        <Route exact path="/clock" component={Clock} />
+                        <Switch>
+                            <Redirect exact from="/" to="/clock" />
+                            <Route path="/clock" component={Clock} />
+                        </Switch>
                     )
                 }
             </LoginContext.Consumer>
