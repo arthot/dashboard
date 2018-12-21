@@ -2,3 +2,8 @@
   padding: var(--var-padding-main);
   border-right: 1px solid var(--var-border-color);
 }
+
+.nav-item {
+  display: block;
+  margin: 1em 0;
+}

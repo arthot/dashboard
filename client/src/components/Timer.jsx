@@ -39,6 +39,7 @@ export default class TimerComponent extends Component {
         clearInterval(timer);
         clearInterval(this.state.timer);
         this.setState({ timer: null });
+        timer = null;
     }
 
     componentWillUnmount() {
@@ -75,11 +76,11 @@ class Timer extends PureComponent {
                 <div className="timer-container">
                     <div className="timer">{Math.floor(this.props.value / 60).pad(2)}:{(this.props.value % 60).pad(2)}</div>
                     <div className="timer-toolbox">
-                        <button onClick={this.props.onRestart}>Restart</button>
+                        <button className="toolbox-item" onClick={this.props.onRestart}>Restart</button>
                         {!this.props.timer &&
-                            <button onClick={this.props.onStart}>Start</button>}
+                            <button className="toolbox-item" onClick={this.props.onStart}>Start</button>}
                         {!!this.props.timer &&
-                            <button onClick={this.props.onPause}>Pause</button>}
+                            <button className="toolbox-item" onClick={this.props.onPause}>Pause</button>}
                     </div>
                 </div>
             </div>

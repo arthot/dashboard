@@ -3,14 +3,8 @@ import { NavLink } from 'react-router-dom';
 
 const App = () => (
     <nav className="nav">
-        <ul>
-            <li>
-                <NavLink to="/clock">Clock</NavLink>
-            </li>
-            <li>
-                <NavLink to="/timer">Timer</NavLink>
-            </li>
-        </ul>
+        <NavLink className="nav-item" to="/clock">Clock</NavLink>
+        <NavLink className="nav-item" to="/timer">Timer</NavLink>
     </nav>
 );
 
