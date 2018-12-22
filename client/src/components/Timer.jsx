@@ -1,5 +1,9 @@
 import React, { PureComponent, Component } from 'react';
 
+import RestartImg from '../assets/icons/restart.svg?inline';
+import PlayImg from '../assets/icons/play.svg?inline';
+import PauseImg from '../assets/icons/pause.svg?inline';
+
 const PERIOD = 25;
 
 let timer = null;
@@ -76,11 +80,11 @@ class Timer extends PureComponent {
                 <div className="timer-container">
                     <div className="timer">{Math.floor(this.props.value / 60).pad(2)}:{(this.props.value % 60).pad(2)}</div>
                     <div className="timer-toolbox">
-                        <button className="toolbox-item" onClick={this.props.onRestart}>Restart</button>
+                        <RestartImg className="toolbox-item" onClick={this.props.onRestart} />
                         {!this.props.timer &&
-                            <button className="toolbox-item" onClick={this.props.onStart}>Start</button>}
+                            <PlayImg className="toolbox-item" onClick={this.props.onStart} />}
                         {!!this.props.timer &&
-                            <button className="toolbox-item" onClick={this.props.onPause}>Pause</button>}
+                            <PauseImg className="toolbox-item" onClick={this.props.onPause} />}
                     </div>
                 </div>
             </div>

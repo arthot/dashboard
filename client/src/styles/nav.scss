@@ -6,4 +6,18 @@
 .nav-item {
   display: block;
   margin: 1em 0;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.nav-item__active {
+  opacity: 1;
+}
+
+.nav-item svg {
+  height: 2em;
+  fill: var(--var-icon-color);
 }

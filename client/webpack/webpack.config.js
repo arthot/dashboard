@@ -59,7 +59,7 @@ module.exports = (env, argv) => {
                     use: {
                         loader: 'html-loader'
                     }
-                }
+                },
             ]
         },
         devServer: {
