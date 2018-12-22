@@ -1,3 +1,3 @@
-export default function (action) {
+export default function () {
 
 }
