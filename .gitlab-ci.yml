@@ -32,7 +32,6 @@ build:client:
     - if [  -n "$CI_COMMIT_TAG" ]; then echo "$CI_COMMIT_TAG" >> version; else echo "$CI_COMMIT_SHA" >> version ; fi
     - npm ci
     - ./node_modules/.bin/webpack -p --config ./webpack/webpack.config.js
-    - mv build assets
   artifacts:
     paths:
     - client/assets
