@@ -1,0 +1,54 @@
+image: node:10.7.0
+
+stages:
+  - test
+  - build
+
+test:server:
+  stage: test
+  script:
+    - cd server
+    - export NODE_ENV=test
+    - npm ci
+    - npm run lint
+    - npm run ci
+  coverage: '/^All files\s*\|\s*(\d{1,3}(?:\.\d+)?)/'
+  artifacts:
+    reports:
+      junit: server/test-results.xml
+
+test:client:
+  stage: test
+  script:
+    - cd client
+    - export NODE_ENV=test
+    - npm ci
+    - npm run lint
+
+build:client:
+  stage: build
+  script:
+    - cd client
+    - if [  -n "$CI_COMMIT_TAG" ]; then echo "$CI_COMMIT_TAG" >> version; else echo "$CI_COMMIT_SHA" >> version ; fi
+    - npm ci
+    - ./node_modules/.bin/webpack -p --config ./webpack/webpack.config.js
+    - mv build assets
+  artifacts:
+    paths:
+    - client/assets
+    expire_in: 1 week
+  dependencies: []
+
+build:server:
+  stage: build
+  script:
+    - cd server
+    - if [  -n "$CI_COMMIT_TAG" ]; then echo "$CI_COMMIT_TAG" >> version; else echo "$CI_COMMIT_SHA" >> version ; fi
+    - npm ci --production
+    - rm -rf node_modules/**/{LICENSE,*.md,*.yml,.npmignore,license,*.flow,.eslintrc,*.ts,*.lock,tests,bower.json,.jshintrc,AUTHORS,Makefile,package-lock.json}
+    - rm -rf {.vscode,.eslintrc,.gitignore,.nycrc,jsconfig.json,package-lock.json,nodemon.json}
+  artifacts:
+    paths:
+    - server
+    expire_in: 1 week
+  dependencies: []

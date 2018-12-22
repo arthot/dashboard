@@ -10,7 +10,8 @@
     "test:watch": "NODE_ENV=test mocha --bail --exit --recursive --no-timeouts --watch",
     "test:all": "NODE_ENV=test mocha --exit --recursive --no-timeouts src/**/*.spec.js",
     "coverage": "NODE_ENV=test nyc mocha --exit --recursive --no-timeouts src/**/*.spec.js",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "ci": "NODE_ENV=test nyc mocha --exit --recursive --timeout 30000 --reporter mocha-multi-reporters --reporter-options configFile=reporters.json src/**/*.spec.js"
   },
   "author": "arthot",
   "license": "ISC",
@@ -38,6 +39,8 @@
     "chai-http": "^4.2.0",
     "eslint": "^5.10.0",
     "mocha": "^5.2.0",
+    "mocha-junit-reporter": "^1.18.0",
+    "mocha-multi-reporters": "^1.1.7",
     "nodemon": "^1.18.8",
     "nyc": "^13.1.0",
     "proxyquire": "^2.1.0"
