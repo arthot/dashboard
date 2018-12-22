@@ -11,6 +11,10 @@
   &:hover {
     opacity: 1;
   }
+
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 .nav-item__active {
