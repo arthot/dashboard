@@ -2,6 +2,21 @@
   font-size: 6em;
 }
 
+.timer__ending {
+  animation: blink-animation 1s ease-in-out infinite;
+}
+
+.timer__end {
+  animation: blink-animation 0.5s ease-in-out forwards;
+}
+
+@keyframes blink-animation {
+  to {
+    transform: scale(1.2);
+    color: rgb(201, 20, 20);
+  }
+}
+
 .timer-toolbox {
   display: flex;
   justify-content: center;

@@ -1,10 +1,12 @@
 import React, { PureComponent, Component } from 'react';
+import classnames from 'classnames';
 
 import RestartImg from '../assets/icons/restart.svg?inline';
 import PlayImg from '../assets/icons/play.svg?inline';
 import PauseImg from '../assets/icons/pause.svg?inline';
 
-const PERIOD = 25;
+const PERIOD = 2;
+const NOTIFY = 60;
 
 let timer = null;
 let value = 60 * PERIOD;
@@ -34,7 +36,7 @@ export default class TimerComponent extends Component {
             if (value)
                 value = value - 1;
             else
-                clearInterval(timer)
+                this.pause();
         }, 1000);
         this.update();
     }
@@ -47,14 +49,14 @@ export default class TimerComponent extends Component {
     }
 
     componentWillUnmount() {
-        this.isDestroed = true;
+        this.isDestroyed = true;
         clearInterval(this.state.timer);
     }
 
     update() {
         this.setState({
             timer: setInterval(() => {
-                if (!this.isDestroed)
+                if (!this.isDestroyed)
                     this.setState({ value })
             }, 1000)
         });
@@ -75,13 +77,20 @@ export default class TimerComponent extends Component {
 
 class Timer extends PureComponent {
     render() {
+        const minutes = Math.floor(this.props.value / 60).pad(2);
+        const seconds = (this.props.value % 60).pad(2);
         return (
             <div className="page page__center">
                 <div className="timer-container">
-                    <div className="timer">{Math.floor(this.props.value / 60).pad(2)}:{(this.props.value % 60).pad(2)}</div>
+                    <div className={classnames("timer", {
+                        "timer__ending": this.props.value && this.props.value < NOTIFY,
+                        "timer__end": !this.props.value,
+                    })}>
+                        {minutes}:{seconds}
+                    </div>
                     <div className="timer-toolbox">
                         <RestartImg className="toolbox-item" onClick={this.props.onRestart} />
-                        {!this.props.timer &&
+                        {!this.props.timer && !!this.props.value &&
                             <PlayImg className="toolbox-item" onClick={this.props.onStart} />}
                         {!!this.props.timer &&
                             <PauseImg className="toolbox-item" onClick={this.props.onPause} />}
