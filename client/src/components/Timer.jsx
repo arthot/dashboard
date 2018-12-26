@@ -28,7 +28,7 @@ export default class TimerComponent extends Component {
     restart() {
         clearInterval(timer);
         value = 60 * PERIOD;
-        this.setState({ value }, () => this.start());
+        this.setState({ value }, () => this.pause());
     }
 
     start() {
