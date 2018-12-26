@@ -9,6 +9,6 @@ body {
   height: 100vh;
   width: 100%;
 
-  background-color: var(--var-background-color);
-  color: var(--var-text-color);
+  background-color: $var-background-color;
+  color: $var-text-color;
 }

@@ -1,6 +1,6 @@
 .nav {
-  padding: var(--var-padding-main);
-  border-right: 1px solid var(--var-border-color);
+  padding: $var-padding-main;
+  border-right: 1px solid $var-border-color;
 }
 
 .nav-item {
@@ -23,5 +23,5 @@
 
 .nav-item svg {
   height: 2em;
-  fill: var(--var-icon-color);
+  fill: $var-icon-color;
 }

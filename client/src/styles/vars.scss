@@ -1,10 +1,5 @@
-:root {
-  --var-padding-main: 0.5em;
-}
-
-.app-content__black {
-  --var-background-color: black;
-  --var-text-color: white;
-  --var-border-color: rgb(37, 37, 37);
-  --var-icon-color: white;
-}
+$var-padding-main: 0.5em;
+$var-background-color: black;
+$var-text-color: white;
+$var-border-color: rgb(37, 37, 37);
+$var-icon-color: white;
