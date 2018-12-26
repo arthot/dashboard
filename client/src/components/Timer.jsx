@@ -5,7 +5,7 @@ import RestartImg from '../assets/icons/restart.svg?inline';
 import PlayImg from '../assets/icons/play.svg?inline';
 import PauseImg from '../assets/icons/pause.svg?inline';
 
-const PERIOD = 2;
+const PERIOD = 25;
 const NOTIFY = 60;
 
 let timer = null;
