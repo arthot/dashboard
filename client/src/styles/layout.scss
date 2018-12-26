@@ -2,13 +2,14 @@ html,
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
+  background-color: $var-background-color;
 }
 
 .app-content {
   display: flex;
-  height: calc(100vh + 50px);
+  height: 100vh;
   width: 100%;
+  margin-bottom: 50px;
 
-  background-color: $var-background-color;
   color: $var-text-color;
 }
